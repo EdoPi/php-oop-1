@@ -59,7 +59,7 @@ class Fridge {
 $carote = new Food('carote', 'verdura', 10 );
 $zucchine = new Food('zucchine', 'verdure', 3);
 $carne = new Food ('bistecca', 'carne', 1);
-$formaggio = new Food ('parmiggiano', 'formaggio', 1);
+$formaggio = new Food ('parmigiano', 'formaggio', 1);
 $uova = new Food ('uova', 'uova', 6);
 
 $kitchenFridge = new Fridge('cucina');
@@ -69,14 +69,52 @@ $kitchenFridge -> addDrawerMiddle($carne);
 $kitchenFridge -> addDrawerBottom($carote);
 $kitchenFridge -> addDrawerBottom($zucchine);
 
-print_r($kitchenFridge -> getDrawerTop() );
-echo '<br>';
-print_r($kitchenFridge -> getDrawerMiddle() );
-echo '<br>';
-print_r($kitchenFridge -> getDrawerBottom() );
-echo '<br>';
 
 
-foreach ($kitchenFridge -> getDrawerTop() as $key => $value) {
-    echo $key . ' , ' . $value;
-}
+$cassettoTop = $kitchenFridge -> getDrawerTop();
+$cassettoMiddle = $kitchenFridge -> getDrawerMiddle();
+$cassettoBottom = $kitchenFridge -> getDrawerBottom();
+
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>FRIGORIFERO AD OGGETTI</h1>
+    <div class="container">
+        <div class="cassetto-uno">
+            <h3>Cassetto Alto</h2>
+            <ul>
+                <?php foreach ($cassettoTop as $key => $element){?>
+                    <li><?php  echo  'n°' . ' ' . $element -> quantita . ' - ' . $element -> nome  ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <div class="cassetto-due">
+            <h3>Cassetto intermedio</h3>
+            <ul>
+                <?php foreach ($cassettoMiddle as $key => $element){?>
+                    <li><?php  echo  'n°' . ' ' . $element -> quantita . ' - ' . $element -> nome  ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+        <div class="cassetto-tre">
+        <h3>Cassetto basso</h3>
+            <ul>
+                <?php foreach ($cassettoBottom as $key => $element){?>
+                    <li><?php  echo  'n°' . ' ' . $element -> quantita . ' - ' . $element -> nome  ?></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

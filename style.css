@@ -1,0 +1,45 @@
+h1{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+}
+
+ul{
+    line-height: 30px;
+    list-style-type: none;
+    display: flex;
+}
+
+li{
+    width: 20%;
+    border: 1px solid black;
+    border-radius: 5%;
+    text-align: center;
+    margin-right: 10px;
+}
+
+
+.container{
+    width: 800px;
+    margin: 0 auto;
+    background-color: #ccc;
+}
+
+.cassetto-uno{
+    border: 2px solid blue;
+    padding: 30px;
+}
+
+.cassetto-due{
+    margin-top: 15px;
+    border: 2px solid red;
+    padding: 30px;
+}
+
+.cassetto-tre{
+    margin-top: 15px;
+    border: 2px solid green;
+    padding: 30px;
+}
