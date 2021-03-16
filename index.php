@@ -1,5 +1,15 @@
 <?php
 
+$newName = $_GET['nome'];
+$newGenere = $_GET['genere'];
+$newQuantita =$_GET['quantita'];
+
+var_dump($newName);
+echo '<br>';
+var_dump($newGenere);
+echo '<br>';
+var_dump($newQuantita);
+
 class Food {
 
     public $nome;
@@ -71,11 +81,38 @@ $kitchenFridge -> addDrawerBottom($zucchine);
 
 
 
+
+
+if ($newName != NULL && $newGenere != NULL && $newQuantita != NULL) {    
+    
+    $newFood = new Food($newName, $newGenere, $newQuantita);
+    
+    if ($newGenere === 'verdura') {
+        
+        $kitchenFridge -> addDrawerBottom($newFood);
+    }
+
+    if ($newGenere === "carne") {
+        
+        $kitchenFridge -> addDrawerMiddle($newFood);
+    }
+
+    if ($newGenere === "formaggio") {
+        
+        $kitchenFridge -> addDrawerTop($newFood);
+    }
+
 $cassettoTop = $kitchenFridge -> getDrawerTop();
 $cassettoMiddle = $kitchenFridge -> getDrawerMiddle();
 $cassettoBottom = $kitchenFridge -> getDrawerBottom();
 
+}
 
+print_r($kitchenFridge->getDrawerTop());
+echo '<br>';
+print_r($kitchenFridge->getDrawerMiddle());
+echo '<br>';
+print_r($kitchenFridge->getDrawerBottom());
 
 ?>
 
@@ -114,6 +151,18 @@ $cassettoBottom = $kitchenFridge -> getDrawerBottom();
                     <li><?php  echo  'n°' . ' ' . $element -> quantita . ' - ' . $element -> nome  ?></li>
                 <?php } ?>
             </ul>
+        </div>
+        <div class ="input">
+                    <form action="<?php echo $_SERVER['PHP_SELF']?>" method="GET">
+                        Che cibo vuoi: <input type="text" name="nome" >
+                        Di che tipo è: <select name="genere" id="">
+                            <option value="verdura">Verdura</option>
+                            <option value="carne">Carne</option>
+                            <option value="formaggio">Formaggio</option>
+                        </select>
+                        Quanto ne vuoi?<input type="number" name="quantita">
+                        <input type="submit" name="submit" value="submit">
+                    </form>
         </div>
     </div>
 </body>
